@@ -1,0 +1,32 @@
+services:
+  voice-clone-detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: voice-clone-detector:latest
+    container_name: voice-clone-detector
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - C:/Users/Maithresh/.cache/huggingface:/root/.cache/huggingface
+      - aegis_model_cache:/fast_cache
+    environment:
+      - PORT=8000
+      - PYTHONUNBUFFERED=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    gpus: all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      disable: true
+
+volumes:
+  aegis_model_cache:

@@ -1,0 +1,47 @@
+# Python Virtual Environments
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Hugging Face & Model Caches / Large Weights
+.cache/
+*.safetensors
+*.pt
+*.bin
+*.onnx
+
+# SQLite Databases & Session Data
+*.db
+*.sqlite
+*.sqlite3
+users.db
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary Audio / Processing Files
+*.tmp
+*.pcm16k.wav
+temp_*
+
+# Logs
+*.log
